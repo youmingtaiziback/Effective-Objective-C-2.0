@@ -45,7 +45,7 @@
 * 第6章 块与大中枢派发 
   * 第37条：理解“块”这一概念 
   * 第38条：为常用的块类型创建typedef 
-  * 第39条：用handler块降低代码分散程度 
+  * [第39条：用handler块降低代码分散程度 ](di-39-tiao-ff1a-yong-handler-kuai-jiang-di-dai-ma-fen-san-cheng-du.md)
   * 第40条：用块引用其所属对象时不要出现保留环 
   * 第41条：多用派发队列，少用同步锁 
   * 第42条：多用GCD，少用performSelector系列方法 
