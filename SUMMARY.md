@@ -39,11 +39,11 @@
   * 第31条：在dealloc方法中只释放引用并解除监听 
   * 第32条：编写“异常安全代码”时留意内存管理问题 
   * 第33条：以弱引用避免保留环 
-  * 第34条：以“自动释放池块”降低内存峰值 
-  * 第35条：用“僵尸对象”调试内存管理问题 
+  * [第34条：以“自动释放池块”降低内存峰值 ](di-34-tiao-ff1a-yi-201c-zi-dong-shi-fang-chi-kuai-201d-jiang-di-nei-cun-feng-zhi.md)
+  * [第35条：用“僵尸对象”调试内存管理问题 ](di-35-tiao-ff1a-yong-201c-jiang-shi-dui-xiang-201d-diao-shi-nei-cun-guan-li-wen-ti.md)
   * [第36条：不要使用retainCount ](di-36-tiao-ff1a-buyao-shi-yong-retaincount.md)
-* 第6章 块与大中枢派发 
-  * 第37条：理解“块”这一概念 
+* [第6章 块与大中枢派发 ](di-6-zhang-kuai-yu-da-zhong-shu-pai-fa.md)
+  * [第37条：理解“块”这一概念 ](di-37-tiao-ff1a-li-jie-201c-kuai-201d-zhe-yi-gai-nian.md)
   * [第38条：为常用的块类型创建typedef ](di-38-tiao-ff1a-wei-chang-yong-de-kuai-lei-xing-chuang-jian-typedef.md)
   * [第39条：用handler块降低代码分散程度 ](di-39-tiao-ff1a-yong-handler-kuai-jiang-di-dai-ma-fen-san-cheng-du.md)
   * 第40条：用块引用其所属对象时不要出现保留环 
