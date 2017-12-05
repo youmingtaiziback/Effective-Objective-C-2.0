@@ -14,5 +14,39 @@
 
 ![](/assets/import.png)
 
-僵尸类是从名为\_NSZombie\_的模板类里复制出来的
+僵尸类是从名为\_NSZombie\_的模板类里复制出来的，僵尸类及僵尸对象的创建过程如下：
+
+    // Obtain the class of the object being deallocated
+    Class cls = object_getClass(self);
+
+    // Get the class’s name
+    const char *clsName = class_getName(cls);
+
+    // Prepend _NSZombie_ to the class name
+    const char *zombieClsName = "_NSZombie_" + clsName;
+
+    // See if the specific zombie class exists
+    Class zombieCls = objc_lookUpClass(zombieClsName);
+
+    // If the specific zombie class doesn’t exist, then it needs to be created
+    if (!zombieCls)
+    {
+        // Obtain the template zombie class called _NSZombie_
+        Class baseZombieCls = objc_lookUpClass("_NSZombie_");
+
+        // Duplicate the base zombie class, where the new class’s name is the prepended string from above
+        zombieCls = objc_duplicateClass(baseZombieCls, zombieClsName, 0);
+    }
+
+    // Perform normal destruction of the object being deallocated
+    objc_destructInstance(self);
+
+    // Set the class of the object being deallocated to the zombie class
+    objc_setClass(self, zombieCls);
+
+    // The class of `self’ is now _NSZombie_OriginalClass
+
+
+  
+
 
