@@ -14,3 +14,5 @@
 
 ![](/assets/import.png)
 
+僵尸类是从名为\_NSZombie\_的模板类里复制出来的
+
