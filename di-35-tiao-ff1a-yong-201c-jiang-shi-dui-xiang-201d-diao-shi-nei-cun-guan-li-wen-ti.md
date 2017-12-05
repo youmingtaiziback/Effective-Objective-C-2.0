@@ -46,6 +46,39 @@
 
     // The class of `self’ is now _NSZombie_OriginalClass
 
+开启了“僵尸对象”后，runtime把dealloc替换成了以上版本
+
+内存没有被释放，所以内存不可被复用
+
+僵尸类的作用在消息转发中体现出来。\_NSZombie\_未实现任何方法，没有超类，只有一个isa成员变量
+
+消息转发机制中，僵尸对象的处理流程如下：
+
+```
+// Obtain the object’s class
+Class cls = object_getClass(self);
+
+// Get the class’s name
+const char *clsName = class_getName(cls);
+
+// Check if the class is prefixed with _NSZombie_
+if (string_has_prefix(clsName, "_NSZombie_")
+{
+    // If so, this object is a zombie
+
+    // Get the original class name by skipping past the _NSZombie_, i.e. taking the substring from character 10
+    const char *originalClsName = substring_from(clsName, 10);
+
+    // Get the selector name of the message
+    const char *selectorName = sel_getName(_cmd);
+
+    // Log a message to indicate which selector is being sent to which zombie
+    Log("*** -[%s %s]: message sent to deallocated instance %p", originalClsName, selectorName, self);
+
+    // Kill the application
+    abort();
+}
+```
 
   
 
