@@ -6,3 +6,11 @@
 
 开启“僵尸对象”功能后，runtime系统会把已经回收的对象转化成“僵尸对象”而不会真正回收他它们。这种对象所在的内存无法重用，僵尸对象收到消息后会抛出异常，准确说明收到的消息、描述回收之前的对象
 
+给僵尸对象发消息时控制台的信息如下：
+
+`*** -[CFString respondsToSelector:]: message sent to deallocated instance 0x713ebc0`
+
+在Xcode里打开“僵尸对象”选项
+
+![](/assets/import.png)
+
