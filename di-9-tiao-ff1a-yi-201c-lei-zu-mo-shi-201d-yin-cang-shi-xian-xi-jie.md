@@ -82,3 +82,7 @@ Objective-C没有办法指明某个基类是“抽象的”，只能在文档中
 
 如果对象所属的类位于类族中，调用\[obj isMemberOfClass:\[A class\]\]时就要注意了，因为此时obj的类可能是A的子类
 
+#### Cocoa里的类族
+
+系统框架中有很多类族。大部分collection都是类族。
+
