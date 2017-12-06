@@ -56,5 +56,25 @@ typedef NS_ENUM(NSUInteger, EOCEmployeeType){
 @end
 ```
 
+```
+@interface EOCEmployeeDeveloper : EOCEmployee
+
+@end
+
+@implementation EOCEmployeeDeveloper
+
+-(void)doWork
+{
+    [self writeCode];
+}
+
+-(void)writeCode
+{
+    /////
+}
+
+@end
+```
+
 
 
