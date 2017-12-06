@@ -89,11 +89,20 @@ Objective-C没有办法指明某个基类是“抽象的”，只能在文档中
 ```
 NSArray *array = [NSArray array];
 if ([array class] == [NSArray class]) {
-        
+
 }
 ```
 
 这个判断不可能为真，因为array所属的类是抽象基类NSArray的某一个子类
+
+如果要判断的话，可以采用
+
+```
+NSArray *array = [NSArray array];
+if ([array isKindOfClass:[NSArray class]) {
+        
+}
+```
 
 
 
