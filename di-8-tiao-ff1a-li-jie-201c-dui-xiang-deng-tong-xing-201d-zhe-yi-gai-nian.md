@@ -80,5 +80,49 @@ NSString、NSArray、NSDictionary都有各自的等同性判断方法，后两�
 }
 ```
 
+#### 等同性判断的执行深度
+
+深度等同性判断：像NSArray一样，先判断元素个数，如果相等，在逐个在每两个元素上调用`isEqual:`
+
+如果对象是从数据库里的数据创建的，则只需要比较“主键”
+
+#### 容器中可变类的等同性
+
+对象放入collection之后就不应该改变其hash值了
+
+```
+NSMutableSet *set = [NSMutableSet new];
+NSMutableArray *arrayA = [@[@1, @2] mutableCopy];
+[set addObject:arrayA];
+NSLog(@“set = %@“,set);
+// set = {((1,2))}
+```
+
+```
+NSMutableArray *arrayB = [@[@1, @2] mutableCopy];
+[set addObject:arrayB];
+NSLog(@“set = %@“,set);
+// set = {((1,2))} 
+```
+
+```
+NSMutableArray *arrayC = [@[@1] mutableCopy];
+[set addObject:arrayC];
+NSLog(@“set = %@“,set);
+// set = {((1),(1,2))}  
+```
+
+```
+[arrayC addObject:@2];
+NSLog(@“set = %@“,set);
+// set = {((1,2),(1,2))}  
+```
+
+```
+NSSet *setB = [set copy];
+NSLog(@“setB = %@“,setB);
+// setB = {((1,2))} 
+```
+
 
 
