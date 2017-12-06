@@ -78,3 +78,7 @@ typedef NS_ENUM(NSUInteger, EOCEmployeeType){
 
 以上的工厂模式是创建类族的方法之一
 
+Objective-C没有办法指明某个基类是“抽象的”，只能在文档中写明。基类一般没有名为init的方法，还可以通过在基类的方法里面抛出异常来保证用户不会使用基类实例
+
+如果对象所属的类位于类族中，调用\[obj isMemberOfClass:\[A class\]\]时就要注意了，因为此时obj的类可能是A的子类
+
