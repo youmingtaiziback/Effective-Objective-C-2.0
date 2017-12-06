@@ -49,7 +49,36 @@ hash方法的三种实现对比
 
 #### 特定类所具有的等同性判断方法
 
-NSString、NSArray、NSDictionary都有各自的等同性判断方法，传入错误类型会导致抛出异常
+NSString、NSArray、NSDictionary都有各自的等同性判断方法，后两个方法传入错误类型会导致抛出异常
+
+自己创建等同性判断方法的优势在于
+
+* 无需检测参数类型，提高性能
+* 可读性强
+
+在编写自定义的等同性判断方法时，应该覆写“isEqual:”方法
+
+```
+- (BOOL)isEqualToPerson:(EOCPerson*)otherPerson{
+    if (self == object) return YES;
+    EOCPerson *otherPerson = (EOCPerson*)object;
+    if (![_firstName isEqualToString:otherPerson.firstName])
+        return NO;
+    if (![_lastName isEqualToString:otherPerson.lastName])
+        return NO;
+    if (_age != otherPerson.age)
+        return NO;
+    return YES;
+}
+
+- (BOOL)isEqual:(id)object{
+    if ([self class] == [object class]){
+        return [self isEqualToPerson:(EOCPerson*)object];
+    }else{
+        return [super isEqual:object];
+    }
+}
+```
 
 
 
