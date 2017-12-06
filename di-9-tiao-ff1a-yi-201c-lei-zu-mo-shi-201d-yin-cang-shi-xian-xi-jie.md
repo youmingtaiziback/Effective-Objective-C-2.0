@@ -76,5 +76,5 @@ typedef NS_ENUM(NSUInteger, EOCEmployeeType){
 @end
 ```
 
-
+以上的工厂模式是创建类族的方法之一
 
