@@ -100,9 +100,15 @@ if ([array class] == [NSArray class]) {
 ```
 NSArray *array = [NSArray array];
 if ([array isKindOfClass:[NSArray class]) {
-        
+
 }
 ```
+
+对于Cocoa中NSArray这样的类来说，可以新增子类，但要遵守以下规则
+
+* 子类应该继承自类族中的抽象基类
+* 子类应该定义自己的数据存储方式
+* 子类应当覆写超累文档中指明需要覆写的方法
 
 
 
