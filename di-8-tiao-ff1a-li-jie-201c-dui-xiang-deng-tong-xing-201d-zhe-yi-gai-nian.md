@@ -34,6 +34,8 @@ hash方法的三种实现对比
 }
 ```
 
+计算哈希码需要生成字符串，性能差
+
 ```
 - (NSUInteger)hash{
     NSUInteger firstNameHash = [_firstName hash];
@@ -42,8 +44,6 @@ hash方法的三种实现对比
     return firstNameHash ^ lastNameHash ^ ageHash;
 }
 ```
-
-
 
 
 
