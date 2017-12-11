@@ -8,5 +8,41 @@ id objc_getAssociatedObject(id object, const void * key)
 void objc_removeAssociatedObjects(id object)
 ```
 
+#### 关联对象用法举例
+
+```
+#import <objc/runtime.h>
+
+static void *EOCMyAlertViewKey = "EOCMyAlertViewKey";
+
+- (void)askUserAQuestion {
+    UIAlertView *alert = [[UIAlertViewalloc]
+                          initWithTitle:@"Question"
+                          message:@"What do you want to do?"
+                          delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"Continue", nil];
+    
+    void (^block)(NSInteger) = ^(NSInteger buttonIndex){
+        if (buttonIndex == 0) {
+            [self doCancel];
+        } else {
+            [self doContinue];
+        }
+    };
+    
+    objc_setAssociatedObject(alert, EOCMyAlertViewKey, block, OBJC_ASSOCIATION_COPY);
+    
+    [alert show];
+}
+
+// UIAlertViewDelegate protocol method
+- (void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    void (^block)(NSInteger) = objc_getAssociatedObject(alertView, EOCMyAlertViewKey);
+    block(buttonIndex);
+}
+
+```
+
 
 
