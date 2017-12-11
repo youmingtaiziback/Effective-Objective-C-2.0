@@ -43,5 +43,5 @@ static void *EOCMyAlertViewKey = "EOCMyAlertViewKey";
 }
 ```
 
-相比delegate方式来讲代码更紧凑
+相比delegate方式来讲代码更紧凑，但是很可能因为块的使用而引入循环引用
 
