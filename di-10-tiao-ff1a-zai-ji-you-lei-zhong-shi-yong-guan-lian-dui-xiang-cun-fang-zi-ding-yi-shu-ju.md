@@ -22,7 +22,7 @@ static void *EOCMyAlertViewKey = "EOCMyAlertViewKey";
                           delegate:self
                           cancelButtonTitle:@"Cancel"
                           otherButtonTitles:@"Continue", nil];
-    
+
     void (^block)(NSInteger) = ^(NSInteger buttonIndex){
         if (buttonIndex == 0) {
             [self doCancel];
@@ -30,9 +30,9 @@ static void *EOCMyAlertViewKey = "EOCMyAlertViewKey";
             [self doContinue];
         }
     };
-    
+
     objc_setAssociatedObject(alert, EOCMyAlertViewKey, block, OBJC_ASSOCIATION_COPY);
-    
+
     [alert show];
 }
 
@@ -41,8 +41,7 @@ static void *EOCMyAlertViewKey = "EOCMyAlertViewKey";
     void (^block)(NSInteger) = objc_getAssociatedObject(alertView, EOCMyAlertViewKey);
     block(buttonIndex);
 }
-
 ```
 
-
+相比delegate方式来讲代码更紧凑
 
