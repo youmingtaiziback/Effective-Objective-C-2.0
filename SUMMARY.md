@@ -59,5 +59,5 @@
   * 第49条：对自定义其内存管理语义的collection使用无缝桥接 
   * 第50条：构建缓存时选用NSCache而非NSDictionary 
   * 第51条：精简initialize与load的实现代码 
-  * 第52条：别忘了NSTimer会保留其目标对象
+  * [第52条：别忘了NSTimer会保留其目标对象](di-52-tiao-ff1a-bie-wang-le-nstimer-hui-bao-liu-qi-mu-biao-dui-xiang.md)
 
