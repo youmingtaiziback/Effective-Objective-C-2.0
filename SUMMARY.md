@@ -48,7 +48,7 @@
   * [第39条：用handler块降低代码分散程度 ](di-39-tiao-ff1a-yong-handler-kuai-jiang-di-dai-ma-fen-san-cheng-du.md)
   * 第40条：用块引用其所属对象时不要出现保留环 
   * 第41条：多用派发队列，少用同步锁 
-  * 第42条：多用GCD，少用performSelector系列方法 
+  * [第42条：多用GCD，少用performSelector系列方法 ](di-42-tiao-ff1a-duo-yong-gcd-ff0c-shao-yong-performselector-xi-lie-fang-fa.md)
   * 第43条：掌握GCD及操作队列的使用时机 
   * 第44条：通过Dispatch Group机制，根据系统资源状况来执行任务 
   * 第45条：使用dispatch\_once来执行只需运行一次的线程安全代码 
