@@ -7,7 +7,39 @@
 
 所以重复的timer容易带来循环引用的问题
 
+可以使用block来解决此问题
 
+```
+@interface NSTimer (EOCBlocksSupport)  
+  
++ (NSTimer *)eoc_scheduledTimerWithTimeInterval:(NSTimeInterval)interval  
+                                          block:(void(^)())block  
+                                        repeats:(BOOL)repeats;  
+  
+@end  
+  
+@implementation NSTimer (EOCBlocksSupport)  
+  
++ (NSTimer *)eoc_scheduledTimerWithTimeInterval:(NSTimeInterval)interval  
+                                          block:(void(^)())block  
+                                        repeats:(BOOL)repeats  
+{  
+    return [self scheduledTimerWithTimeInterval:interval  
+                                         target:self  
+                                       selector:@selector(eoc_blockInvoke:)  
+                                       userInfo:[block copy]  
+                                        repeats:repeats];  
+}  
+  
++ (void)eoc_blockInvoke:(NSTimer*)timer {  
+    void (^block)() = timer.userInfo;  
+    if (block) {  
+        block();  
+    }  
+} 
+@end  
+
+```
 
 
 
