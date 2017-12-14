@@ -9,10 +9,10 @@
   * 第5条：用枚举表示状态、选项、状态码 
 * 第2章 对象、消息、运行期 
   * 第6条：理解“属性”这一概念 
-  * 第7条：在对象内部尽量直接访问实例变量 
+  * [第7条：在对象内部尽量直接访问实例变量 ](di-7-tiao-ff1a-zai-dui-xiang-nei-bu-jin-liang-zhi-jie-fang-wen-shi-li-bian-liang.md)
   * [第8条：理解“对象等同性”这一概念 ](di-8-tiao-ff1a-li-jie-201c-dui-xiang-deng-tong-xing-201d-zhe-yi-gai-nian.md)
   * [第9条：以“类族模式”隐藏实现细节 ](di-9-tiao-ff1a-yi-201c-lei-zu-mo-shi-201d-yin-cang-shi-xian-xi-jie.md)
-  * 第10条：在既有类中使用关联对象存放自定义数据 
+  * [第10条：在既有类中使用关联对象存放自定义数据 ](di-10-tiao-ff1a-zai-ji-you-lei-zhong-shi-yong-guan-lian-dui-xiang-cun-fang-zi-ding-yi-shu-ju.md)
   * 第11条：理解objc\_msgSend的作用 
   * 第12条：理解消息转发机制 
   * 第13条：用“方法调配技术”调试“黑盒方法” 
@@ -59,7 +59,7 @@
   * 第49条：对自定义其内存管理语义的collection使用无缝桥接 
   * 第50条：构建缓存时选用NSCache而非NSDictionary 
   * 第51条：精简initialize与load的实现代码 
-  * 第52条：别忘了NSTimer会保留其目标对象
+  * [第52条：别忘了NSTimer会保留其目标对象](di-52-tiao-ff1a-bie-wang-le-nstimer-hui-bao-liu-qi-mu-biao-dui-xiang.md)
 
 
 
